@@ -70,6 +70,10 @@ func (o *GlobalOptions) GetPass() string {
 		return passwd
 	}
 
+	if passwd = os.Getenv("JIRA_ENV_PASSWORD"); passwd != "" && o.AuthMethod() == "env-password" {
+		return passwd
+	}
+
 	prompt := fmt.Sprintf("Jira Password [%s]: ", o.Login)
 	help := ""
 
