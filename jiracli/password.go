@@ -70,7 +70,7 @@ func (o *GlobalOptions) GetPass() string {
 		return passwd
 	}
 
-	if passwd = os.Getenv("JIRA_ENV_PASSWORD"); passwd != "" && o.AuthMethod() == "env-password" {
+	if passwd = os.Getenv("JIRA_ENV_PASSWORD"); passwd != "" && o.AuthMethod() == "session" {
 		return passwd
 	}
 
